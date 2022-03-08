@@ -16,16 +16,19 @@ public class ResultsPage {
 
 	}
 
-	@FindBy(xpath = "//*[@id='search']/div/div/div[1]")
-	public WebElement firstResult;
+	@FindBy(id = "result-stats")
+	public WebElement resultStatsMsg;
+	
+	@FindBy(id = "oFNiHe")
+	public WebElement didYouMeanMsg;
+
+	@FindBy(xpath = "//*[contains(text(),'Search instead for')]")
+	public WebElement searchInsteadMsg;
 
 	@FindBy(xpath = "//*[@ebates-serp-link='title']")
 	public List<WebElement> searchResults;
 
-	@FindBy(id = "rso")
+	@FindBy(xpath = "//*[@id='search']/div/div/div")
 	public List<WebElement> searchLinks;
 
-	
-
-	
 }
