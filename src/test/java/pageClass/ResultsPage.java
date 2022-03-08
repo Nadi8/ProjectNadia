@@ -25,9 +25,6 @@ public class ResultsPage {
 	@FindBy(xpath = "//*[contains(text(),'Search instead for')]")
 	public WebElement searchInsteadMsg;
 
-	@FindBy(xpath = "//*[@ebates-serp-link='title']")
-	public List<WebElement> searchResults;
-
 	@FindBy(xpath = "//*[@id='search']/div/div/div")
 	public List<WebElement> searchLinks;
 
