@@ -1,7 +1,5 @@
 package utilities;
 
-
-
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,16 +22,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommonMethods extends PageInitializer {
 
-	/*
-	 * 
-	 * method that clears and sends keys
-	 * 
-	 * @param element
-	 * 
-	 * @param text
-	 * 
-	 * Created by Nadia Erdynieva Dec 7th , 2021
-	 */
 	public static void sendText(WebElement element, String text) {
 
 		element.clear();
@@ -41,16 +29,6 @@ public class CommonMethods extends PageInitializer {
 
 	}
 
-	/*
-	 * 
-	 * method that checks if radio/checkbox is enabled and clicks it
-	 * 
-	 * @param radioOrCheckBox
-	 * 
-	 * @param value
-	 * 
-	 * Created by Nadia Erdynieva Dec 7th , 2021
-	 */
 	public static void clickRadioOrCheckBox(List<WebElement> radioOrCheckBox, String value) {
 
 		String actualValue;
@@ -65,16 +43,6 @@ public class CommonMethods extends PageInitializer {
 		}
 	}
 
-	/*
-	 * 
-	 * method that selects value by index
-	 * 
-	 * @param element
-	 * 
-	 * @param index ==3
-	 * 
-	 * Created by Nadia Erdynieva Dec 7th , 2021
-	 */
 	public static void selectValue(WebElement element, int index) {
 		try { // try/catch makes your code run regardless of an exception
 
@@ -90,13 +58,6 @@ public class CommonMethods extends PageInitializer {
 
 	}
 
-	/*
-	 * 
-	 * method that accepts alert
-	 * 
-	 * 
-	 * Created by Nadia Erdynieva Dec 7th , 2021
-	 */
 	public static void acceptAlert() {
 		try {
 
@@ -109,13 +70,6 @@ public class CommonMethods extends PageInitializer {
 
 	}
 
-	/*
-	 * 
-	 * method that dismisses alert
-	 * 
-	 * 
-	 * Created by Nadia Erdynieva Dec 7th , 2021
-	 */
 	public static void dismissAlert() {
 		try {
 			Alert alert = Driver.getDriver().switchTo().alert();
@@ -127,13 +81,6 @@ public class CommonMethods extends PageInitializer {
 
 	}
 
-	/*
-	 * 
-	 * method that gets alert text
-	 * 
-	 * 
-	 * Created by Nadia Erdynieva Dec 7th , 2021
-	 */
 	public static String getAlertText() {
 		String alertText = null;
 		try {
@@ -147,14 +94,6 @@ public class CommonMethods extends PageInitializer {
 
 	}
 
-	/*
-	 * 
-	 * method that sends alert text
-	 * 
-	 * @param text
-	 * 
-	 * Created by Nadia Erdynieva Dec 7th , 2021
-	 */
 	public static void sendAlertText(String text) {
 		try {
 			Alert alert = Driver.getDriver().switchTo().alert();
@@ -165,19 +104,6 @@ public class CommonMethods extends PageInitializer {
 
 	}
 
-	// iframes
-	/*
-	 * 
-	 * 3 methods that switch to iframe
-	 * 
-	 * @param nameOrId
-	 * 
-	 * @param element
-	 * 
-	 * @param index
-	 * 
-	 * Created by Nadia Erdynieva Dec 7th , 2021
-	 */
 	public static void switchToFrameByname(String nameOrId) {
 
 		try {
@@ -222,8 +148,6 @@ public class CommonMethods extends PageInitializer {
 		}
 	}
 
-	// waits
-
 	public static WebDriverWait getWaitObject() {
 		WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
 		return wait;
@@ -255,31 +179,14 @@ public class CommonMethods extends PageInitializer {
 		getJSObject().executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 
-	/**
-	 * Method that will scroll the page down based on the passed pixel parameters
-	 * 
-	 * @param pixel
-	 */
 	public static void scrollDown(int pixel) {
 		getJSObject().executeScript("window.scrollBy(0," + pixel + ")");
 	}
 
-	/**
-	 * Method that will scroll the page up based on the passed pixel parameters
-	 * 
-	 * @param pixel
-	 */
 	public static void scrollUp(int pixel) {
 		getJSObject().executeScript("window.scrollBy(0,-" + pixel + ")");
 	}
 
-	//
-
-	/**
-	 * This Method will take a screenshot
-	 * 
-	 * @param filename
-	 */
 	public static byte[] takeScreenshot(String filename) {
 		TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
 		byte[] picBytes = ts.getScreenshotAs(OutputType.BYTES);
@@ -309,13 +216,6 @@ public class CommonMethods extends PageInitializer {
 			e.printStackTrace();
 		}
 	}
-
-	/**
-	 * this method will select a date from the calendar
-	 * 
-	 * @param element
-	 * @param text
-	 */
 
 	public static void selectCalendarDate(List<WebElement> element, String text) {
 		for (WebElement pickDate : element) {

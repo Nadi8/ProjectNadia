@@ -40,10 +40,9 @@ public class SearchGoogle extends CommonMethods {
 		Assert.assertTrue(currentURL.equals(expectedURL));
 		hp.searchInput.sendKeys(ConfigurationReader.getProperty("searchItem"), Keys.ENTER);
 
-		String resultURL = driver.getCurrentUrl();
-//		System.out.println(resultURL);
+		String resultURL = driver.getCurrentUrl();	
 		Assert.assertTrue(resultURL.contains("Ducks"));
-		System.out.println("End of Test 1");
+		
 
 	}
 
@@ -53,10 +52,9 @@ public class SearchGoogle extends CommonMethods {
 		hp.searchInput.sendKeys(ConfigurationReader.getProperty("searchItem"), Keys.ENTER);
 		String expectedTitle = "Ducks - Google Search";
 		String title = driver.getTitle();
-		System.out.println(title);
 		Assert.assertEquals(expectedTitle, title);
 		Assert.assertTrue(title.contains("Ducks"));
-		System.out.println("End of Test 2");
+		
 
 	}
 
@@ -64,22 +62,20 @@ public class SearchGoogle extends CommonMethods {
 	@Test
 	public void searchDucks3() {
 		hp.searchInput.sendKeys(ConfigurationReader.getProperty("searchItem"), Keys.ENTER);
-//		CommonMethods.getWaitObject();
+		CommonMethods.getWaitObject();
 		CommonMethods.waitForVisibility(rp.resultStatsMsg);
-		System.out.println(rp.resultStatsMsg.getText());
 		Assert.assertTrue(rp.resultStatsMsg.isDisplayed());
-		System.out.println("End of Test 3");
+		
 	}
 
 	
 	@Test
 	public void searchDucks4() {
 		hp.searchInput.sendKeys(ConfigurationReader.getProperty("searchItemExtraSpace"), Keys.ENTER);
-//		CommonMethods.getWaitObject();
+		CommonMethods.getWaitObject();
 		CommonMethods.waitForVisibility(rp.didYouMeanMsg);
-		System.out.println(rp.didYouMeanMsg.getText());
 		Assert.assertTrue(rp.didYouMeanMsg.getText().contains("Ducks"));
-		System.out.println("End of Test 4");
+		
 	}
 
 	
@@ -88,9 +84,8 @@ public class SearchGoogle extends CommonMethods {
 		hp.searchInput.sendKeys(ConfigurationReader.getProperty("searchItemSpellingError"), Keys.ENTER);
 		CommonMethods.getWaitObject();
 		CommonMethods.waitForVisibility(rp.searchInsteadMsg);
-		System.out.println(rp.searchInsteadMsg.getText());
 		Assert.assertTrue(rp.searchInsteadMsg.isDisplayed());
-		System.out.println("End of Test 5");
+		
 	}
 
 	@Test
@@ -98,7 +93,6 @@ public class SearchGoogle extends CommonMethods {
 		hp.searchInput.sendKeys(ConfigurationReader.getProperty("searchItem"), Keys.ENTER);
 		String resultURL = driver.getCurrentUrl();
 		int size = rp.searchLinks.size();
-		System.out.println(size);
 		for (int i = 0; i < rp.searchLinks.size(); i++) {
 			String linkText = rp.searchLinks.get(i).getText();
 			if (linkText.contains("Ducks")) {
@@ -107,10 +101,16 @@ public class SearchGoogle extends CommonMethods {
 			}
 		}
 
-		String newURL = driver.getCurrentUrl();
-		Assert.assertTrue(!newURL.equals(resultURL));
-		Driver.getDriver().navigate().back();
-		System.out.println("End of Test 6");
+//		String newURL = driver.getCurrentUrl();
+//		Assert.assertTrue(!newURL.equals(resultURL));
+//		try {
+//			Thread.sleep(5000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		Driver.getDriver().navigate().back();
+		
 
 	}
 
